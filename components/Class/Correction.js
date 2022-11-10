@@ -23,8 +23,14 @@ export default class Correction {
     }
 
     async getResultFile(file, arg) {
+        let exec = "";
+        if(this.langage === "js") exec = "node";
+        else if(this.langage === "py") exec = "python";
+        else if(this.langage === "rb") exec = "ruby";
+        else if(this.langage === "php") exec = "php";
+
         try {
-            const bl = await spawn('node', [file, ...arg]);
+            const bl = await spawn(exec, [file, ...arg]);
             return bl.toString().replace(/\r?\n|\r/g, " ");
         } catch (e) {
             // console.log(e.stderr.toString())
