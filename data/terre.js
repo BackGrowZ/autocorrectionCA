@@ -60,5 +60,6 @@ const terre = {
         { args: [], result:false, msg:"Aucun argument" },
     ],
 }
-
+// https://github.com/Alexis0059/Epreuve_CA => ruby
+// https://github.com/Bardevoir/EpreuveTerre => python
 export default terre;
