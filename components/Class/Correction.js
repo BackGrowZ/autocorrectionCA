@@ -127,7 +127,7 @@ export default class Correction {
                 const res = output[key][i];
                 const resIsValide = res !== undefined && res !== false;
                 const shell = this.generateShellPrompts(test.indexOf(key), args);
-                if (resIsValide && res.trim() === result) { // Correct
+                if (resIsValide && res.trim().includes(result)) { // Correct
                     resultat[key].push({ args, result: true, output: res, shell });
                 } else if (resIsValide && this.isMsgError(res)) { // Error args
                     resultat[key].push({ args, result: true, output: res, msg, shell });
