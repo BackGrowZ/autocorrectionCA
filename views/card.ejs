@@ -1,0 +1,20 @@
+<div class="card" style="width: 24rem; margin-bottom: 1rem;">
+    <div>
+      <%- include('terminal.ejs', {output:test.output,args:test.args, shell:test.shell}); %>
+    </div>
+    <% if(test.result){ %>
+        <div class="card-body" style="background-color:#78e08f;">
+            <h5 class="card-title">correcte 🥳</h5>
+        </div>
+    <% } else { %>
+        <div class="card-body" style="background-color: #e67e22;">
+            <h5 class="card-title">Incorrecte 😖</h5>
+            <p class="card-text">Message: <%= test.msg %> </p>
+            <% if(test.expected === false){ %>
+                <p class="card-text">Result attendu: error</p>
+            <% } else { %>
+                <p class="card-text">Résultat attendu: <%= test.expected %></p>
+            <% } %>
+        </div>
+      <% } %>
+  </div>

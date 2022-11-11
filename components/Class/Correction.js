@@ -14,7 +14,7 @@ export default class Correction {
     generateDataTesting() {
         if(this.epreuve === "terre") {
             const result = terre ;
-            result["Nom du programme"].push({ args: [], result:`${this.pseudo}-${this.epreuve}01.${this.langage}` });
+            result["Nom du programme"] = [{ args: [], result:`${this.pseudo}-${this.epreuve}01.${this.langage}` }];
             return result;
         } else {
             const result = {};
