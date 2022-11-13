@@ -9,7 +9,8 @@ export default async (req, res) => {
     */
     const autoCorrection = new Correction(pseudo, epreuve, langage);
     const results = await autoCorrection.correction();
-    const URL = req.hostname+":9300";
+    const PORT = process.env.PORT || 9300
+    const URL = req.hostname+":"+PORT;
     
     res.render('result.ejs',{results, langage, pseudo, epreuve, URL});
     // res.render('terminal.ejs');
