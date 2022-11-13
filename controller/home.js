@@ -52,7 +52,7 @@ const homePostController = async (req, res) => {
       })
       .catch((err) => console.log(err));
   }
-  res.json({url: `${req.hostname}/correction/${epreuve}/${pseudo}/${langage}`});
+  res.json({url: `https://${req.hostname}/correction/${epreuve}/${pseudo}/${langage}`});
   // res.json({url: `http://${req.hostname}:9300/correction/${epreuve}/${pseudo}/${langage}`});
 };
 
