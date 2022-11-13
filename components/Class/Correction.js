@@ -23,6 +23,7 @@ export default class Correction {
   }
 
   haveFiles() {
+    console.log("file list: ",this.files.join(" "));
     let result = true;
     this.files.forEach((file) => {
       if (!fs.existsSync(`files/${file.name}`)) {
@@ -127,7 +128,7 @@ export default class Correction {
   }
 
   async correction() {
-    if (!this.haveFiles()) return { error: "Les fichiers n'existent pas" };
+    //if (!this.haveFiles()) return { error: "Les fichiers n'existent pas" };
     const output = await this.getOutput();
     const resultat = {};
     const test = Object.keys(this.data);
