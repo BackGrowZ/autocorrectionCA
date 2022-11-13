@@ -16,7 +16,7 @@
   <body class="pattern" style="color: #ffffff; font-family: 'Ubuntu', sans-serif;">
     <div style="display: flex;justify-content: space-around;/* padding-top: 50px; */align-items: center;height: 100vh;">
       <div style="padding: 15px;width: 780px;text-align: justify;">
-        <h1 style="color:#ffffff">Auto-Correcteur Coding Accelerator</h1>
+        <h1 style="color: #EAB543;font-weight: bold;">Auto-Correcteur Coding Accelerator</h1>
         <p>
           Le premier correcteur automatique pour les épreuves de Coding Accelerator.
           Verrrifie que votre algorithme est fonctionne mais aussi votre gestion des erreurs
@@ -26,28 +26,21 @@
           s'assurer du bon fonctionnement de votre code</p>
         <p>Un feedback claire pour chaque serie de test effectuer afin de vous aider a corriger vos erreurs.</p>
         <p>Plus besoin d'attendre pour savoir si vous avez valider votre eppreuve, une reponse en quelque seconde</p>
-        <p>Plus de limite de correction, vous pouvez utiliser le correcteur automatique autant de fois que vous <br>
-          le souhaitez pour chacune des epreuves</p>
-        <!-- <ul style="color:black">
-          <li>Exercices tester avec different arguments pour tester le maximum de cas utilisation et <br>
-            s'assurer du bon fonctionnement de votre code</li>
-          <li>Un feedback claire pour chaque serie de test effectuer afin de vous aider a corriger vos erreurs.</li>
-          <li>Plus besoin d'attendre pour savoir si vous avez valider votre eppreuve, une reponse en quelque seconde</li>
-          <li>Plus de limite de correction, vous pouvez utiliser le correcteur automatique autant de fois que vous <br>
-            le souhaitez pour chacune des epreuves</li>
-        </ul> -->
+        <p>Plus de limite de correction, vous pouvez utiliser le correcteur automatique autant de fois que vous
+          le souhaitez pour chacune des epreuves
+        </p>
       </div>
       <div style="width: 520px;padding: 25px;background: white;color: #000;border-radius: 10px;">
-        <h2 style="color:#275d2b">Pret pour votre correction ?</h2>
+        <h2 style="color:#275d2b;font-weight: bold;">Pret pour votre correction ?</h2>
         <form method="post">
           <div class="form-group">
             <label for="url">Lien de votre repos git</label>
-            <input type="text" class="form-control" id="url" aria-describedby="emailHelp" required placeholder="https://github.com/BackGrowZ/Epreuve-Terre">
+            <input name="repos" type="text" class="form-control" id="url" aria-describedby="emailHelp" required placeholder="https://github.com/BackGrowZ/Epreuve-Terre">
             <small id="emailHelp" class="form-text text-muted">Le repos doit contenir uniquement l'epreuve que vous souhaitez corriger</small>
           </div>
           <div class="form-group mt-2">
             <label for="exampleFormControlSelect1">Langage</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select name="langage" class="form-control" id="exampleFormControlSelect1">
               <option value="js">Javascript</option>
               <option value="rb">Ruby</option>
               <option value="py">Python</option>
@@ -56,7 +49,7 @@
           </div>
           <div class="form-group mt-2">
             <label for="exampleFormControlSelect1">Epreuve</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select name="epreuve" class="form-control" id="exampleFormControlSelect1">
               <option value="terre">Terre</option>
               <option value="eau" disabled>Eau (soon)</option>
               <option value="air" disabled>Air (soon)</option>
