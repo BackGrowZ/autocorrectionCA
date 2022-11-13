@@ -38,7 +38,7 @@ export default class Correction {
   }
 
   isMsgError(msg) {
-    const regex = /\berror|\berreur/gm;
+    const regex = /err(or|eur)/gmi;
     const msgLower = msg.toLowerCase();
     return msgLower.match(regex) !== null;
   }
