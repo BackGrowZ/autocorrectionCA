@@ -22,7 +22,7 @@ const terre = {
     { args: ["a"], result: false, msg: "Lettre" },
     { args: [], result: false, msg: "Aucun argument" },
   ],
-  Divisions: [
+  "Divisions": [
     { args: [2, 1], result: "resultat: 2 reste: 0" },
     { args: [5, 3], result: "resultat: 1 reste: 2" },
     { args: [1, 2], result: false, msg: "Diviseur plus grand que le dividende" },
@@ -37,7 +37,6 @@ const terre = {
     { args: ["salut"], result: "tulas" },
     { args: ["salut les gens !"], result: "! sneg sel tulas" },
     { args: ["bon", "jour"], result: false, msg: "Deux arguments" },
-    { args: ["salut", "les", "gens"], result: false, msg: "Trois arguments" },
     { args: [], result: false, msg: "Aucun argument" },
   ],
   "Taille d’une chaîne": [
@@ -51,8 +50,7 @@ const terre = {
     { args: ["2", "3"], result: "8" },
     { args: [2, 0], result: "1" },
     { args: [2, 1], result: "2" },
-    { args: [2, -1], result: "0.5" },
-    { args: [2, 2.5], result: "5.656854249492381" },
+    { args: [2, -1], result: false, msg: "Exposant négatif" },
     { args: [2, "a"], result: false, msg: "Lettre en deuxième argument" },
     { args: [2], result: false, msg: "Un seul argument" },
     { args: [], result: false, msg: "Aucun argument" },
@@ -77,7 +75,7 @@ const terre = {
     { args: ["00:00"], result: "12:00AM" },
     { args: ["12:00PM"], result: false, msg: "Probleme de syntaxe des argument" },
     { args: [1], result: false, msg: "Chiffre en argument" },
-    { args: ["2", "2"], result: false, msg: "Deux arguments" },
+    { args: ["12:00", "12:00"], result: false, msg: "Deux arguments" },
     { args: [], result: false, msg: "Aucun argument" },
   ],
   "12 to 24": [
@@ -87,14 +85,14 @@ const terre = {
     { args: ["12:00PM"], result: "12:00" },
     { args: ["12:00"], result: false, msg: "Pas de AM ou PM" },
     { args: [1], result: false, msg: "Chiffre en argument" },
-    { args: ["2", "2"], result: false, msg: "Deux arguments" },
+    { args: ["12:00PM", "12:00PM"], result: false, msg: "Deux arguments" },
     { args: [], result: false, msg: "Aucun argument" },
   ],
   "Trouver la Suisse (lol)": [
     { args: [11, 40, 34], result: "34" },
     { args: [11, 34, 40], result: "34" },
     { args: [34, 11, 40], result: "34" },
-    { args: [11, 6, 40, 34], result: false, msg: "Nombre non entier" },
+    { args: [11, 6, 40, 34], result: false, msg: "3 arguments max" },
     { args: [2, 2, 2], result: false, msg: "Nombre identique" },
     { args: [2, 2, "a"], result: false, msg: "Lettre en argument" },
     { args: [2, 2, 1, 4], result: false, msg: "Trop d'argument" },
@@ -104,13 +102,11 @@ const terre = {
   "Trié ou pas": [
     { args: [11, 40, 34], result: "pas triée" },
     { args: [11, 34, 40], result: "triée" },
-    { args: [11, 6, 40, 34], result: false, msg: "Nombre non entier" },
+    { args: [11, 6, 40, 34], result: "pas triée" },
     { args: [2, 2, "a"], result: false, msg: "Lettre en argument" },
     { args: ["salut"], result: false, msg: "Chaine de caractere" },
     { args: [], result: false, msg: "Pas d'argument" },
   ],
-  "Terre : ok": [{ args: [], result: "terminé" }],
+  "Terre : ok": [{ args: [], result: "terminé", regex: /^J'ai terminé l’Épreuve de la Terre et c’était/gmi }],
 };
-// https://github.com/Alexis0059/Epreuve_CA => ruby
-// https://github.com/Bardevoir/EpreuveTerre => python
 export default terre;

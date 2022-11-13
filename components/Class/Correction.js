@@ -134,11 +134,11 @@ export default class Correction {
     for (const [key, value] of Object.entries(this.data)) {
       resultat[key] = [];
       for (let i = 0; i < value.length; i++) {
-        const { args, result, msg } = value[i];
+        const { args, result, msg, regex } = value[i];
         const res = output[key][i];
         const resIsValide = res !== undefined && res !== false;
         const shell = this.generateShellPrompts(test.indexOf(key), args);
-        if (resIsValide && res.trim().toLowerCase().includes(result)) {
+        if (resIsValide && res.trim().toLowerCase().includes(result) ||(regex && resIsValide && result.match(regex))) {
           // Correct
           resultat[key].push({ args, result: true, output: res, shell });
         } else if (resIsValide && this.isMsgError(res)) {
