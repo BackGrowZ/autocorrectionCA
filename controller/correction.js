@@ -1,17 +1,14 @@
 import Correction from '../components/Class/Correction.js';
 export default async (req, res) => {
     const {pseudo,epreuve, langage} = req.params;
-    /*
-    const files = getFilesList(epreuve, pseudo, langage);
-    const testingData = generateDataTesting(epreuve, pseudo, langage);
-    const results = await testing(files, testingData);
-    const result = compareResult(results, testingData);
-    */
     const autoCorrection = new Correction(pseudo, epreuve, langage);
     const results = await autoCorrection.correction();
+    // const PORT = process.env.PORT || 9300
+    // const URL = req.hostname+":"+PORT;
     const URL = req.hostname;
-    
-    res.render('result.ejs',{results, langage, pseudo, epreuve, URL});
-    // res.render('terminal.ejs');
-    // res.json(results);
+    if(!results.error){
+        res.render('result.ejs',{results, langage, pseudo, epreuve, URL});
+    } else {
+        res.render('error.ejs');
+    }
 }

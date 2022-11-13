@@ -22,6 +22,16 @@ export default class Correction {
     }
   }
 
+  haveFiles() {
+    let result = true;
+    this.files.forEach((file) => {
+      if (!fs.existsSync(`files/${file.name}`)) {
+        result = false;
+      }
+    });
+    return result;
+  }
+
   async getResultFile(file, arg) {
     let exec = "";
     if (this.langage === "js") exec = "node";
@@ -117,6 +127,7 @@ export default class Correction {
   }
 
   async correction() {
+    if (!this.haveFiles()) return { error: "Les fichiers n'existent pas" };
     const output = await this.getOutput();
     const resultat = {};
     const test = Object.keys(this.data);
