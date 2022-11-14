@@ -33,6 +33,15 @@ export default class Correction {
     return result;
   }
 
+  async testLangage() {
+    try {
+      const result = await spawn(`ruby`, ["-v"]);
+      console.log(result.toString());
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   async getResultFile(file, arg) {
     let exec = "";
     if (this.langage === "js") exec = "node";
@@ -128,6 +137,7 @@ export default class Correction {
   }
 
   async correction() {
+    this.testLangage();
     //if (!this.haveFiles()) return { error: "Les fichiers n'existent pas" };
     const output = await this.getOutput();
     const resultat = {};
