@@ -33,15 +33,6 @@ export default class Correction {
     return result;
   }
 
-  async testLangage() {
-    try {
-      const result = await spawn(`ruby`, ["-v"]);
-      console.log(result.toString());
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
   async getResultFile(file, arg) {
     let exec = "";
     if (this.langage === "js") exec = "node";
@@ -50,9 +41,13 @@ export default class Correction {
     else if (this.langage === "php") exec = "php";
 
     try {
+      console.log("exec: ", exec);
+      console.log("file: ", file);
+      console.log("arg: ", arg);
       const bl = await spawn(exec, [file, ...arg]);
       return bl.toString().replace(/\r?\n|\r/g, " ");
-    } catch (e) {
+    } catch (err) {
+      console.log(err);
       // console.log(e.stderr.toString())
     }
   }
@@ -158,7 +153,7 @@ export default class Correction {
         } else {
           // Mauvaise réponse
           const message = msg ? msg : "Incorrect";
-          console.log({ args, result: false, output: res, msg: message, expected: result, shell });
+          // console.log({ args, result: false, output: res, msg: message, expected: result, shell });
           resultat[key].push({ args, result: false, output: res, msg: message, expected: result, shell });
         }
       }
