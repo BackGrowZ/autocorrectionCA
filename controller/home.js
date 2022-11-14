@@ -1,7 +1,7 @@
 import axios from "axios";
 import fs from "fs";
 
-const NB_FILES = 16;
+const NB_FILES = 15;
 
 // GOOD
 const generateURLFile = (repos, ext, epreuve) => {
