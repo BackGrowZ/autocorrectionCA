@@ -132,7 +132,6 @@ export default class Correction {
   }
 
   async correction() {
-    this.testLangage();
     //if (!this.haveFiles()) return { error: "Les fichiers n'existent pas" };
     const output = await this.getOutput();
     const resultat = {};
